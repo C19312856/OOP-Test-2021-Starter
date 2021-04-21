@@ -1,8 +1,8 @@
 package ie.tudublin;
 
 public class Note {
-    char note;
-    int duration;
+    private char note;
+    private int duration;
 
     public char getNote() {
         return note;
