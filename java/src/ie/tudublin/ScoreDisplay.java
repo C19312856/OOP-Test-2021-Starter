@@ -2,10 +2,6 @@ package ie.tudublin;
 
 import java.util.ArrayList;
 
-import java.util.List;
-
-import java.util.Arrays;
-
 import processing.core.PApplet;
 
 public class ScoreDisplay extends PApplet
@@ -14,7 +10,6 @@ public class ScoreDisplay extends PApplet
 
 	private void loadScore() 
 	{
-		notes.add("a");
 		/*for(int i = 0; i < score.length(); i++)
 		{
 			char letterornum = score.charAt(i);
@@ -26,7 +21,7 @@ public class ScoreDisplay extends PApplet
 		}*/
 	}
 
-	private void printScores()
+	/*private void printScores()
 	{
 		for (int i = 0; i < notes.size(); i++)
 		{
@@ -43,7 +38,7 @@ public class ScoreDisplay extends PApplet
 				print(tabbeddisplay);
 			}
 		}
-	}
+	}*/
 
 	String score = "DEFGABcd";
 	//String score = "D2E2F2G2A2B2c2d2";
@@ -63,7 +58,6 @@ public class ScoreDisplay extends PApplet
 	{
 		//loadScore();
 		//printScores();
-		print(notes.get(0));
 	}
 
 	public void draw()
@@ -86,7 +80,31 @@ public class ScoreDisplay extends PApplet
         {
 			float x = map(i, 0, 17, border, width - border);
             fill(0);
-			text(i, x, border / 2);
+			if (i == 0 || i == 12 || i == 14 || i == 15 || i == 16)
+			{
+				char listNote = 'D';
+				text(listNote, x, border / 2);
+			}
+			if (i == 1 || i == 5 || i ==13)
+			{
+				char listNote = 'E';
+				text(listNote, x, border / 2);
+			}
+			if (i == 2 || i == 3 || i == 4|| i == 6 || i ==11)
+			{
+				char listNote = 'F';
+				text(listNote, x, border / 2);
+			}
+			if (i == 9)
+			{
+				char listNote = 'B';
+				text(listNote, x, border / 2);
+			}
+			if (i == 7 || i == 8 || i == 10)
+			{
+				char listNote = 'A';
+				text(listNote, x, border / 2);
+			}
 			//Implement notes instead of numbers with regards to notes array
 			//Note a = notes.get(24);
 			//text(a, x, border / 2);
