@@ -10,24 +10,20 @@ import processing.core.PApplet;
 
 public class ScoreDisplay extends PApplet
 {
-	ArrayList<Note> notes = new ArrayList<Note>();
+	ArrayList<String> notes = new ArrayList<String>();
 
 	private void loadScore() 
 	{
-		StringBuilder sb = new StringBuilder();
+		notes.add("a");
+		/*for(int i = 0; i < score.length(); i++)
+		{
+			char letterornum = score.charAt(i);
 
-		for (char c: score.toCharArray()) {
-   			sb.append(c).append(" ");
-		}
-
-		System.out.println(sb.toString().trim());
-
-		String str[] = score.split(" ");
-
-		notes = Arrays.asList(str);
-		for (String s: notes){
-			System.out.println(s);
-		}
+			if(Character.isDigit(letterornum) == false)
+			{
+				notes.add
+			}
+		}*/
 	}
 
 	private void printScores()
@@ -36,9 +32,16 @@ public class ScoreDisplay extends PApplet
 		{
 			String display = notes.get(i);
 
-			String tabbeddisplay = display.substring(0)+'\t'+display.substring(1)+'\t'+display.substring(2, display.length());
-
-			System.out.println(tabbeddisplay);
+			if(display.substring() == "1")
+			{
+				String tabbeddisplay = display.substring(0)+'\t'+display.substring(1)+'\t'+"Quaver";
+				print(tabbeddisplay);
+			}
+			else
+			{
+				String tabbeddisplay = display.substring(0)+'\t'+display.substring(1)+'\t'+"Crotchet";
+				print(tabbeddisplay);
+			}
 		}
 	}
 
@@ -58,17 +61,43 @@ public class ScoreDisplay extends PApplet
 
 	public void setup() 
 	{
-		loadScore();
-		printScores();
+		//loadScore();
+		//printScores();
+		print(notes.get(0));
 	}
 
 	public void draw()
 	{
 		background(255);
-		
+		drawLines();
 	}
 
-	void drawNotes()
+	public void drawLines()
 	{
+		float border = 0.1f * width;
+		for(int i = 0 ; i < 5 ; i ++)
+        {
+			float x = map(i, 0, 9, border, width - border);
+            float y = map(i, 0, 9, border, height - border);
+            stroke(0, 0, 0);
+            line(border, y, width - border, y);
+        }
+		for(int i = 0 ; i < 17 ; i ++)
+        {
+			float x = map(i, 0, 17, border, width - border);
+            fill(0);
+			text(i, x, border / 2);
+			//Implement notes instead of numbers with regards to notes array
+			//Note a = notes.get(24);
+			//text(a, x, border / 2);
+        }
 	}
+
+	/*void drawNotes()
+	{
+		for(Notes n: notes)
+		{
+			println(n);
+		}
+	}*/
 }
