@@ -4,15 +4,33 @@ public class Note {
     char note;
     int duration;
 
-    public Note(){
-        note = 'A';
-        duration = 2;
+    public char getNote() {
+        return note;
     }
 
-    public String toString()
-    {
-        return this.note + " " + this.duration + " ";
+    public void setNote(char note) {
+        this.note = note;
     }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public Note(char note, int duration)
+    {
+        this.note = note;
+        this.duration = duration;
+    }
+
+    @Override
+    public String toString() {
+        return "Note [duration=" + duration + ", note=" + note + "]";
+    }
+
 }
 
 
